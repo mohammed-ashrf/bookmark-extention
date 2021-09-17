@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <div class="logo">
+    <div class="logo-icon">
+      <a href="#">B</a>
+    </div>
+    <!-- <span class="flex-spacer"></span> -->
+    <div class="launcher">
+      <h1>lank Launcher</h1> 
+    </div>
+  </div>
+</div>
+<div class="modal-content">
+  <p>Easily Add your bookmarks</p>
+  <button (click)="openAddForm()"><span class="fa fa-sign-in fa-lg"></span> Add</button>
+</div>
+<div class="modal-icons">
+  <div class="flex-container">
+      <div class="flex" *ngFor="let bookmark of bookmarks" >
+        <a href={{bookmark.bookmarkURL}} target="_blank">
+          <img class="img" src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}"
+           alt="">
+          <P class="name">{{bookmark.bookmarkName}}</P>
+        </a>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<mat-toolbar class="mat-toolbar">
+  <h2>Add your bookmark</h2>
+  <span class="flex-spacer"></span>
+  <button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+<form novalidate [formGroup]="bookmarkForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+  <p> 
+    <mat-form-field class="full-width">
+      <input matInput formControlName="bookmarkName" placeholder="Bookmark Name" type="text" required>
+      <mat-error *ngIf="formErrors.bookmarkName">{{formErrors.bookmarkName}}</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="bookmarkURL" placeholder="Bookmark URL" type="text" required>
+      <mat-error *ngIf="formErrors.bookmarkURL">{{formErrors.bookmarkURL}}</mat-error>
+    </mat-form-field>
+  </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+  <!-- <span class="flex-spacer"></span> -->
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button type="submit" mat-button
+    [disabled]="bookmarkForm.invalid">Add</button>
+  </mat-dialog-actions>
+</form>

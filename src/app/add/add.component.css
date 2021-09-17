@@ -1,0 +1,20 @@
+.flex-spacer {
+    flex: 1 1 auto;
+}
+.mat-toolbar {
+    display: flex;
+    background-color: #fb839e;
+    color: #fff;
+    border-radius: 10px;
+}
+.mat-toolbar h2 {
+    padding-left: 10px;
+}
+.mat-toolbar button {
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    border: none;
+    background-color: #fb839e;
+    color: #fff;
+}
