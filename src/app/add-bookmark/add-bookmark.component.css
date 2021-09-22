@@ -1,0 +1,32 @@
+.input {
+    position: relative;
+    margin: 20px;
+}
+.input svg{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    bottom: 0;
+    width: 20px;
+}
+#input {
+    padding: 12px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    box-shadow: 2px 2px 2px 1px #888888;
+    color: var(--text-color);
+}
+.button {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #fb839e;
+    color: #fff;
+    border-radius: 10px;
+}
+.back {
+    margin: 10px;
+    margin-left: 20px;
+    margin-bottom: 0;
+}

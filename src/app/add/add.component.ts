@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -30,8 +32,9 @@ export class AddComponent implements OnInit {
       
     }
   };
-  constructor(public dialogRef: MatDialogRef<AddComponent>,
-    private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder,
+    private location: Location,
+    private router: Router) { 
       this.createForm();
     }
 
@@ -79,6 +82,9 @@ export class AddComponent implements OnInit {
       }
     }
   }
+  goBack(): void {
+    this.location.back();
+  }
   onSubmit() {
     this.bookmark = this.bookmarkForm.value;
     var count = localStorage.getItem("count")==null?1:localStorage.getItem("count");
@@ -88,7 +94,7 @@ export class AddComponent implements OnInit {
     console.log(localStorage);
     window.localStorage.setItem(`${count}`,JSON.stringify(this.bookmark));
     console.log(window.localStorage);
-    this.dialogRef.close();
+    this.router.navigate(['/home']);
   }
 
 }

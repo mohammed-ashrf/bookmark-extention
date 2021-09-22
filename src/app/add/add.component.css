@@ -1,11 +1,15 @@
 .flex-spacer {
     flex: 1 1 auto;
 }
+.full-width {
+    width: 100%;
+}
 .mat-toolbar {
     display: flex;
     background-color: #fb839e;
     color: #fff;
     border-radius: 10px;
+    width: 384px;
 }
 .mat-toolbar h2 {
     padding-left: 10px;
@@ -17,4 +21,22 @@
     border: none;
     background-color: #fb839e;
     color: #fff;
+}
+.mat-toolbar {
+    margin-left: 18px;
+    height: 43px;
+    margin-top: 10px;
+}
+.form {
+    margin-left: 20px;
+    width: 384px;
+}
+.cancel {
+    background-color: #fb839e;
+    color: #fff;
+    border-radius: 10px;
+}
+.add {
+    border-radius: 10px;
+    margin-left: 10px;
 }

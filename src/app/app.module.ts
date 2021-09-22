@@ -10,17 +10,22 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 
 import 'hammerjs';
 import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
+
+import { BookmarkserviceService } from './services/bookmarkservice.service';
+import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AddComponent
+    AddComponent,
+    AddBookmarkComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,11 +39,9 @@ import { AddComponent } from './add/add.component';
     MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
-  providers: [],
-  entryComponents: [
-    AddComponent
-  ],
+  providers: [BookmarkserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
