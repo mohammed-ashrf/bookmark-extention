@@ -41,7 +41,7 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [BookmarkserviceService],
+  providers: [BookmarkserviceService, HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

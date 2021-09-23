@@ -30,3 +30,38 @@
     margin-left: 20px;
     margin-bottom: 0;
 }
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 22px;
+}
+.flex{
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    width: 100px;
+    border-radius: 100%;
+    margin-bottom: 5px;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 1px #888888;
+}
+.flex:hover{
+    opacity: 0.4;
+}
+.img {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top: 10px;
+    margin-left: 32%;
+    align-self: center;
+    align-items: center;
+}
+.name {
+    color: lightsalmon;
+    text-align: center;
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
+}
