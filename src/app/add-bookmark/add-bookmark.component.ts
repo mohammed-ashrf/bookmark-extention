@@ -12,12 +12,40 @@ export class AddBookmarkComponent implements OnInit {
   isSearching: boolean = false;
   searchReasult= [];
   bookmarkArray = [];
+  keys;
+  bookmarks = this.homeComponent.bookmarks;
   constructor(private location: Location,
     private homeComponent: HomeComponent) { }
 
   ngOnInit() {
   }
 
+  delete(list){
+    var name = list.bookmarkName;
+    var URL = list.bookmarkURL;
+    for (let key of this.keys) {
+      var item = JSON.parse(window.localStorage.getItem(`${key}`));
+      if (item.bookmarkName === name && item.bookmarkURL === URL) {
+        window.localStorage.removeItem(`${key}`);
+      }
+    }
+    for( var i = 0; i < this.bookmarks.length; i++){
+      if ( this.bookmarks[i].bookmarkName === name && this.bookmarks[i].bookmarkURL === URL) { 
+          this.bookmarks.splice(i, 1);
+          i--;
+      }
+    }
+    if (this.isSearching) {
+      for( var i = 0; i < this.searchReasult.length; i++){
+        if ( this.searchReasult[i].bookmarkName === name && this.searchReasult[i].bookmarkURL === URL) { 
+            this.searchReasult.splice(i, 1);
+            i--;
+        }
+      }
+    }
+    console.log(list);
+    location.reload();
+  }
   goBack(): void {
     this.location.back();
   }
@@ -29,10 +57,20 @@ export class AddBookmarkComponent implements OnInit {
     var value = this.input.value;
     var length = value.length;
     console.log(value);
-    var keys = Object.keys(window.localStorage);
-    var bookmarkKeys = keys.slice(2);
-    for (let key of bookmarkKeys) {
-      this.bookmarkArray.push(JSON.parse(window.localStorage.getItem(`${key}`)));
+    this.keys = Object.keys(window.localStorage);
+    for (let key of this.keys) {
+      var item = JSON.parse(window.localStorage.getItem(`${key}`));
+      if (key == 'count') {
+        console.log("count");
+      }else if (item.bookmarkName == '' && item.bookmarkURL == ''){
+        console.log("empity");
+        window.localStorage.removeItem(`${key}`);
+      }else if (item.bookmarkName == '' && item.bookmarkURL !== ''){
+        console.log("empity");
+      }
+      else {
+        this.bookmarkArray.push(item);
+      }
     }
     for (let bookmark of this.bookmarkArray) {
       console.log(bookmark.bookmarkName);

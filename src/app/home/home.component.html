@@ -12,11 +12,11 @@
 </div>
 <div class="modal-content">
   <p>Easily Add your bookmarks</p>
-  <button (click)="edit()">edit</button>
+  <!-- <button (click)="edit()">edit</button> -->
   <button routerLink="/add">Add</button>
 </div>
 <div class="modal-icons">
-  <div class="flex-container">
+  <!-- <div class="flex-container">
       <div class="flex" *ngFor="let bookmark of bookmarks" [hidden]="isEditing">
         <a href={{bookmark.bookmarkURL}} target="_blank">
           <img class="img" src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}"
@@ -24,7 +24,7 @@
           <P class="name">{{bookmark.bookmarkName}}</P>
         </a>
       </div>
-      <!-- <div *ngIf="isEditing">
+      <div *ngIf="isEditing">
         <button class="button back" mat-button (click)="goBack()" fxLayout="row" fxLayoutGap="7px" fxLayoutAlign="space-between center">
           <svg class="Svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0V0z" fill="none"/><path class="Svg" d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"/></svg>      BACK
         </button>
@@ -38,18 +38,9 @@
             </div>
           </li>
         </ul>
-      </div> -->
-  </div>
-  <main *ngIf="isEditing && !isSearching">
-    <div class="navigate">
-      <button class="button back" mat-button (click)="goBack()" fxLayout="row" fxLayoutGap="7px" fxLayoutAlign="space-between center">
-        <svg class="Svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0V0z" fill="none"/><path class="Svg" d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"/></svg>      BACK
-      </button>
-      <div class="input">
-        <svg class="Svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path class="Svg" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        <input id="input" type="text" placeholder="Search for a Bookmark" (keyup.enter)="onSearch()" (keyup)="onSearch()">
       </div>
-    </div>
+  </div> -->
+  <main *ngIf="!isSearching">
     <ol class="gradient-list">
       <li *ngFor="let bookmark of bookmarks" (click)="onClick(this.bookmark.bookmarkURL)" target="_blank" #list>
         <img class="list-img" src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}" alt="{{bookmark.bookmarkName}}">
@@ -58,25 +49,6 @@
         <div class="right">
           <a mat-button class="button" (click)="delete(this.bookmark)">Delete</a>
         </div>
-      </li>
-    </ol>
-  </main>
-  <main *ngIf="isSearching">
-    <div class="navigate">
-      <button class="button back" mat-button (click)="goBack()" fxLayout="row" fxLayoutGap="7px" fxLayoutAlign="space-between center">
-        <svg class="Svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0V0z" fill="none"/><path class="Svg" d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"/></svg>      Home
-      </button>
-      <div class="input">
-        <svg class="Svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path class="Svg" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        <input id="input" type="text" placeholder="Search for a Bookmark" (keyup.enter)="onSearch()">
-      </div>
-    </div>
-    <ol class="gradient-list">
-      <li *ngFor="let bookmark of bookmarkSearch" #list>
-        <img class="list-img" src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}" alt="{{bookmark.bookmarkName}}">
-        <P class="name-editing">{{bookmark.bookmarkName}}</P>
-        <!-- <span class="flex-spacer"></span> -->
-        <a mat-button class="button" (click)="delete(this.bookmark)">Delete</a>
       </li>
     </ol>
   </main>

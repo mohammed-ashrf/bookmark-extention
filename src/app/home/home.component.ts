@@ -86,6 +86,7 @@ export class HomeComponent implements OnInit {
       }
     }
     console.log(list);
+    location.reload();
   }
   onSearch(){
     this.bookmarkSearch = [];
