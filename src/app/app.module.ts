@@ -18,7 +18,6 @@ import 'hammerjs';
 import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
 
-import { BookmarkserviceService } from './services/bookmarkservice.service';
 import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 @NgModule({
   declarations: [
@@ -41,7 +40,7 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [BookmarkserviceService, HomeComponent],
+  providers: [HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

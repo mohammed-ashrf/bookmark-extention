@@ -53,10 +53,8 @@ export class AddBookmarkComponent implements OnInit {
     this.bookmarkArray = [];
     this.searchReasult = [];
     this.input = document.getElementById('input');
-    console.log(this.input);
     var value = this.input.value;
     var length = value.length;
-    console.log(value);
     this.keys = Object.keys(window.localStorage);
     for (let key of this.keys) {
       var item = JSON.parse(window.localStorage.getItem(`${key}`));

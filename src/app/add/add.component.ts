@@ -91,9 +91,7 @@ export class AddComponent implements OnInit {
     count=Number(count)+1;
     count.toString;
     localStorage.setItem("count", JSON.stringify(count));
-    console.log(localStorage);
     window.localStorage.setItem(`${count}`,JSON.stringify(this.bookmark));
-    console.log(window.localStorage);
     this.router.navigate(['/home']);
   }
 

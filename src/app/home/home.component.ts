@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { AddComponent } from '../add/add.component';
-import { BookmarkserviceService } from '../services/bookmarkservice.service';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,16 +15,10 @@ export class HomeComponent implements OnInit {
   isEditing = false;
   bookmarkSearch = [];
   // bookmarkKeys;
-  constructor(public dialog: MatDialog,
-    private bookmarkService: BookmarkserviceService,
-    private location: Location,
-    private router: Router) { }
+  constructor(public dialog: MatDialog,) { }
 
   ngOnInit() {
     this.keys = Object.keys(window.localStorage);
-    console.log(this.keys);
-    // this.bookmarkKeys = this.keys.slice(2);
-    // console.log(this.bookmarkKeys);
     for (let key of this.keys) {
       var item = JSON.parse(window.localStorage.getItem(`${key}`));
       if (key == 'count') {
@@ -43,21 +33,8 @@ export class HomeComponent implements OnInit {
         this.bookmarks.push(item);
       }
     }
-    console.log(this.bookmarks);
-    // window.onload = function() {
-    // var Imgs = document.querySelectorAll('.img');
-    // console.log(Imgs);
-    // for (let i = 0; i < Imgs.length; i++) {
-    //   let item = Imgs[i];
-    //   console.log(item);
-    // }
-    // };
-    // this.getAverageRGB();
   }
 
-  edit() {
-    this.isEditing = true;
-  }
   goBack() {
     this.isEditing = false;
     this.isSearching = false;
@@ -91,16 +68,12 @@ export class HomeComponent implements OnInit {
   onSearch(){
     this.bookmarkSearch = [];
     this.input = document.getElementById('input');
-    console.log(this.input);
     var value = this.input.value;
     var length = value.length;
-    console.log(length);
-    console.log(value);
     if ( value == '') {
       this.isSearching = false;
     }
     for (let bookmark of this.bookmarks) {
-      // console.log(bookmark.bookmarkName);
       var searchingParmeter = bookmark.bookmarkName.substr(0, length);
       if ( searchingParmeter == value) {
         this.bookmarkSearch.push(bookmark);

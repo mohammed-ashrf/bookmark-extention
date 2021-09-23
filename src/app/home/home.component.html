@@ -3,7 +3,6 @@
     <div class="logo-icon">
       <a href="#">B</a>
     </div>
-    <!-- <span class="flex-spacer"></span> -->
     <div class="launcher">
       <h1>lank Launcher</h1> 
     </div>
@@ -12,43 +11,15 @@
 </div>
 <div class="modal-content">
   <p>Easily Add your bookmarks</p>
-  <!-- <button (click)="edit()">edit</button> -->
   <button routerLink="/add">Add</button>
 </div>
 <div class="modal-icons">
-  <!-- <div class="flex-container">
-      <div class="flex" *ngFor="let bookmark of bookmarks" [hidden]="isEditing">
-        <a href={{bookmark.bookmarkURL}} target="_blank">
-          <img class="img" src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}"
-           alt={{bookmark.bookmarkName}}>
-          <P class="name">{{bookmark.bookmarkName}}</P>
-        </a>
-      </div>
-      <div *ngIf="isEditing">
-        <button class="button back" mat-button (click)="goBack()" fxLayout="row" fxLayoutGap="7px" fxLayoutAlign="space-between center">
-          <svg class="Svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0V0z" fill="none"/><path class="Svg" d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"/></svg>      BACK
-        </button>
-        <ul class="editingDiv full-width">
-          <li *ngFor="let bookmark of bookmarks">
-            <img src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}" alt="{{bookmark.bookmarkName}}">
-            <P class="name-editing">{{bookmark.bookmarkName}}</P>
-            <span class="flex-spacer"></span>
-            <div class="right">
-              <a mat-button class="button" (click)="delete()">Delete</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-  </div> -->
   <main *ngIf="!isSearching">
     <ol class="gradient-list">
       <li *ngFor="let bookmark of bookmarks" (click)="onClick(this.bookmark.bookmarkURL)" target="_blank" #list>
         <img class="list-img" src="http://www.google.com/s2/favicons?domain={{bookmark.bookmarkURL}}" alt="{{bookmark.bookmarkName}}">
         <P class="name-editing">{{bookmark.bookmarkName}}</P>
-        <!-- <span class="flex-spacer"></span> -->
-        <div class="right">
-          <a mat-button class="button" (click)="delete(this.bookmark)">Delete</a>
-        </div>
+        <a mat-button class="button" (click)="delete(this.bookmark)">Delete</a>
       </li>
     </ol>
   </main>
