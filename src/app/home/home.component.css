@@ -72,11 +72,11 @@ a:link a:visited{
     text-align: baseline;
     align-items: baseline;
     align-self: center;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 .logo-icon{
     vertical-align: text-bottom;
-    margin-right: 7px;
+    margin-right: 4px;
     font-family: 'Raleway' , sans-serif;
     display: inline-block;
     text-align: center;
